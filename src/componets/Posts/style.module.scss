@@ -1,0 +1,24 @@
+@import "../../style/palette";
+@import "../../style/mixins";
+@import "../../style/vars";
+
+.Posts {
+  display: grid;
+  width: 80%;
+  margin-left: auto;
+  padding: 10px 100px;
+  h2 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 48px;
+    color: $mainHead;
+    &:hover {
+      strong {
+        color: $accent;
+      }
+    }
+  }
+  strong {
+    transition: $transition-st;
+  }
+}

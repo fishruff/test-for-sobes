@@ -1,0 +1,18 @@
+@import "../../style/palette";
+@import "../../style/mixins";
+@import "../../style/vars";
+
+.Header {
+  margin: 60px auto;
+  text-align: center;
+  width: 500px;
+  h2 {
+    color: $mainHead;
+    font-size: 48px;
+  }
+
+  p {
+    color: $addit;
+    font-size: 18px;
+  }
+}

@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+//components
+import Header from "./componets/Header";
+import SliderBlock from "./componets/Slider";
+import Posts from "./componets/Posts";
 
 function App() {
+  const [users, SetUser] = useState([]);
+  const [posts, SetPosts] = useState([]);
+  //get Users
+
+  const GetUsers = async () => {
+    const temp = await fetch(`https://jsonplaceholder.typicode.com/users`).then(
+      (res) => res.json()
+    );
+    SetUser(temp);
+  };
+
+  const GetPosts = async () => {
+    const temp = await fetch(`https://jsonplaceholder.typicode.com/posts`).then(
+      (res) => res.json()
+    );
+    SetPosts(temp);
+  };
+
+  useEffect(() => {
+    GetUsers();
+    GetPosts();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <SliderBlock users={users} />
+      <Posts posts={posts} />
     </div>
   );
 }

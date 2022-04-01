@@ -1,0 +1,29 @@
+@import "../../style/palette";
+@import "../../style/mixins";
+@import "../../style/vars";
+
+.Post {
+  text-align: left;
+  color: $addit;
+  width: 80%;
+  line-height: 28px;
+
+  &:hover {
+    .title {
+      color: $accent;
+    }
+    .body {
+      color: $dark;
+    }
+  }
+}
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  transition: $transition-st;
+}
+.body {
+  font-weight: 400;
+  font-size: 20px;
+  transition: $transition-st;
+}

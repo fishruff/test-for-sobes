@@ -1,0 +1,30 @@
+@import "../../style/palette";
+@import "../../style/mixins";
+@import "../../style/vars";
+
+.UserCard {
+  &:active {
+    color: $accent;
+
+    img {
+      border-bottom: 4px solid $accent;
+    }
+  }
+}
+.Desk {
+  color: $addit;
+  line-height: 0;
+  transition: $transition-st;
+
+  &:hover {
+    color: $accent;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 24px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
