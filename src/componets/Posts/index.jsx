@@ -2,16 +2,24 @@ import React from "react";
 import style from "./style.module.scss";
 import cn from "classnames";
 import Post from "../Post";
+import Pht from "../../img/Vector.svg";
 
-function Posts({ posts }) {
+function Posts(props) {
   return (
     <div className={cn(style.Posts)}>
-      <h2>
-        3 актуальных поста <strong>`Moriah.Stanton`</strong>
-      </h2>
-      {posts.slice(0, 3).map((post) => (
-        <Post title={post.title} body={post.title} key={post.id} />
-      ))}
+      <img src={Pht} alt="" />
+      <div>
+        <h2>
+          3 актуальных поста <strong>{props.userSelect.Cname}</strong>
+        </h2>
+
+        {props.posts
+          .filter((item) => item.userId === props.userSelect.id)
+          .slice(0, 3)
+          .map((post) => (
+            <Post title={post.title} body={post.body} key={post.id} />
+          ))}
+      </div>
     </div>
   );
 }

@@ -11,7 +11,6 @@
     "react-dom": "^18.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-scripts": "5.0.0",
-    "react-slick": "^0.28.1",
     "sass": "^1.49.10",
     "scss": "^0.2.4",
     "web-vitals": "^2.1.4"
@@ -39,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-whirligig": "^6.6.15"
   }
 }

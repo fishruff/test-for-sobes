@@ -1,12 +1,23 @@
-import React from "react";
+import { React, useState } from "react";
 import cn from "classnames";
 import style from "./style.module.scss";
 
 function UserCard(props) {
-  let url = "https://i.pravatar.cc/250/?img=" + props.id;
+  //isActive
+  const [isActive, SetActive] = useState(false);
 
+  const toggleClass = () => {
+    console.log(123);
+    SetActive(!isActive);
+  };
+  let url = "https://i.pravatar.cc/260/?img=" + props.id;
   return (
-    <div className={cn(style.UserCard)}>
+    <div
+      className={isActive ? cn(style.active) : null}
+      onClick={() => {
+        toggleClass();
+      }}
+    >
       <img src={url} alt="" />
       <div className={cn(style.Desk)}>
         <h3>{props.name}</h3>

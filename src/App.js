@@ -7,6 +7,11 @@ import Posts from "./componets/Posts";
 function App() {
   const [users, SetUser] = useState([]);
   const [posts, SetPosts] = useState([]);
+  const [userSelect, SetUserSelect] = useState({
+    id: 1,
+    Cname: "Romaguera-Crona",
+  });
+
   //get Users
 
   const GetUsers = async () => {
@@ -28,11 +33,19 @@ function App() {
     GetPosts();
   }, []);
 
+  const HandleUserSelect = (e) => {
+    SetUserSelect({ id: e.id, Cname: e.Cname });
+  };
+
   return (
     <div className="App">
       <Header />
-      <SliderBlock users={users} />
-      <Posts posts={posts} />
+      <SliderBlock
+        users={users}
+        SetUserSelect={SetUserSelect}
+        HandleUserSelect={HandleUserSelect}
+      />
+      <Posts posts={posts} userSelect={userSelect} />
     </div>
   );
 }

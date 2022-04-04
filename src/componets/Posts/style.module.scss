@@ -3,15 +3,23 @@
 @import "../../style/vars";
 
 .Posts {
-  display: grid;
-  width: 80%;
+  display: flex;
+  width: 100%;
   margin-left: auto;
   padding: 10px 100px;
+  gap: 30px;
+
+  img {
+    height: 200px;
+    padding: 50px;
+  }
+
   h2 {
     font-weight: 600;
     font-size: 48px;
     line-height: 48px;
     color: $mainHead;
+
     &:hover {
       strong {
         color: $accent;
@@ -21,4 +29,6 @@
   strong {
     transition: $transition-st;
   }
+}
+.titlePost {
 }
