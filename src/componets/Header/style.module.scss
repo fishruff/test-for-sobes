@@ -3,9 +3,10 @@
 @import "../../style/vars";
 
 .Header {
-  margin: 60px auto 0;
+  margin: auto;
   text-align: center;
-  width: 500px;
+  padding: 20px;
+
   h2 {
     color: $mainHead;
     font-size: 48px;

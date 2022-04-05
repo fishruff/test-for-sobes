@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import style from "./style.module.scss";
 import cn from "classnames";
 import UserCard from "../UserCard";
@@ -9,11 +9,37 @@ function SliderBlock(props) {
   let whirligig;
   const next = () => whirligig.next();
   const prev = () => whirligig.prev();
-
+  //User is active
   const [userActives, changeUserActive] = useState(1);
   const HandleIsActive = (i) => {
     changeUserActive(i);
   };
+  //media query
+  const [windowWidth, setwindowWidth] = useState(4);
+
+  useEffect(() => {
+    const onResize = () => {
+      const width = window.innerWidth;
+      let count = 4;
+      if (width <= 1180) {
+        count = 3;
+      }
+      if (width <= 930) {
+        count = 2;
+      }
+      if (width <= 660) {
+        count = 1;
+      }
+
+      setwindowWidth(count);
+    };
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
   return (
     <div className={cn(style.Slider)}>
       <div className={cn(style.navigationBlock)}>
@@ -23,7 +49,7 @@ function SliderBlock(props) {
 
       <Slider
         className={cn(style.sliderEls)}
-        visibleSlides={4}
+        visibleSlides={windowWidth}
         slideBy={1}
         preventScroll={true}
         ref={(_whirligigInstance) => {

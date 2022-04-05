@@ -1,0 +1,18 @@
+@import "./palette";
+@import "./vars";
+
+@mixin nm {
+  @media screen and (max-width: #{$media-nm}px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: #{$media-md}px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: #{$media-sm}px) {
+    @content;
+  }
+}

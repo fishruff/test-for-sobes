@@ -3,6 +3,17 @@
 @import "../../style/vars";
 
 .Posts {
+  @include tablet {
+    img {
+      display: none;
+    }
+  }
+  @include mobile {
+    h2 {
+      font-size: 32px !important;
+    }
+  }
+
   display: flex;
   width: 100%;
   margin-left: auto;
@@ -29,6 +40,4 @@
   strong {
     transition: $transition-st;
   }
-}
-.titlePost {
 }
