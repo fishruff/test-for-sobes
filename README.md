@@ -1,6 +1,8 @@
 # test project for interview
 
-This project was made in React
+This project was made in **REACT**
+
+Also I wrote the styles in **SCSS**
 
 ## Available Scripts
 
