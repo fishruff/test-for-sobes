@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import style from "./style.module.scss";
 import cn from "classnames";
 import UserCard from "../UserCard";
@@ -10,6 +10,10 @@ function SliderBlock(props) {
   const next = () => whirligig.next();
   const prev = () => whirligig.prev();
 
+  const [userActives, changeUserActive] = useState(1);
+  const HandleIsActive = (i) => {
+    changeUserActive(i);
+  };
   return (
     <div className={cn(style.Slider)}>
       <div className={cn(style.navigationBlock)}>
@@ -29,10 +33,12 @@ function SliderBlock(props) {
         {props.users.map((user) => (
           <button
             onClick={() => {
+              HandleIsActive(user.id);
               props.HandleUserSelect({ id: user.id, Cname: user.company.name });
             }}
           >
             <UserCard
+              isActive={userActives === user.id ? true : false}
               id={user.id}
               key={user.id}
               name={user.name}
